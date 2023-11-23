@@ -29,24 +29,21 @@ while True:
 
     if len(lmList) != 0:
         fingers = []
-
-        # Baş parmak
+ 
         if lmList[tipIds[0]][1] < lmList[tipIds[0]-1][1]:
             fingers.append(1)
         else:
             fingers.append(0)
 
-        # Diğer parmaklar
         for id in range(1, 5):
             if lmList[tipIds[id]][2] < lmList[tipIds[id] - 2][2]:
                 fingers.append(1)
             else:
                 fingers.append(0)
 
-        # İşaret ve orta parmak kontrolü
         if fingers[1] == 0 and fingers[2] == 1 and fingers[3] == 0 and fingers[4] == 0:
             cv2.putText(img, "love you", (20, 150), cv2.FONT_HERSHEY_SCRIPT_COMPLEX, 3, (255, 0, 0), 5)
-        elif lmList[8][2] > lmList[4][2]:  # İşaret parmağının ikinci üst noktası (ID 8) ve baş parmağın en üst noktası (ID 4)
+        elif lmList[8][2] > lmList[4][2]:  
             cv2.putText(img, "Nah", (20, 150), cv2.FONT_HERSHEY_SCRIPT_COMPLEX, 3, (255, 0, 0), 5)
         else:
             cv2.putText(img, str(fingers.count(1)), (20, 150), cv2.FONT_HERSHEY_SCRIPT_COMPLEX, 3, (48, 214, 200), 5)

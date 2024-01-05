@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 REAL TİME FİNGER COUNTER
 
 

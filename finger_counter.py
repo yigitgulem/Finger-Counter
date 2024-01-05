@@ -5,6 +5,10 @@ cap = cv2.VideoCapture(0)
 cap.set(3, 640)
 cap.set(4, 482)
 
+video = cv2.VideoWriter('hand.mp4',  
+                        cv2.VideoWriter_fourcc(*'XVID'), 
+                        float(16), (1280,960)) 
+
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
 mpDraw = mp.solutions.drawing_utils
@@ -47,10 +51,12 @@ while True:
             cv2.putText(img, "Nah", (20, 150), cv2.FONT_HERSHEY_SCRIPT_COMPLEX, 3, (255, 0, 0), 5)
         else:
             cv2.putText(img, str(fingers.count(1)), (20, 150), cv2.FONT_HERSHEY_SCRIPT_COMPLEX, 3, (48, 214, 200), 5)
-
+    image_r = cv2.resize(img, (1280,960))
+    video.write(image_r) 
     cv2.imshow("Image", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
 cap.release()
+video.release()
 cv2.destroyAllWindows()

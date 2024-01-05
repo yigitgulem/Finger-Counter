@@ -1,6 +1,3 @@
 REAL TİME FİNGER COUNTER
-
-
-https://github.com/yigitgulem/Finger-Counter/assets/139170950/c320e906-5250-46b4-8f48-712e7d70e948
-
+https://github.com/yigitgulem/Finger-Counter/assets/139170950/d1757b88-9634-49d8-ab07-265e6629e53f
 
